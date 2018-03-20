@@ -8,4 +8,6 @@ master:
   volumes:
     - ~/jenkins_data:/var/jenkins_home
   privileged: true
-  command: service start docker
+  entrypoint: ~/docker-entrypoint.sh
+  volumes:
+    - ./docker-entrypoint.sh:~/docker-entrypoint.sh
