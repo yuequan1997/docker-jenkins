@@ -7,3 +7,5 @@ master:
     - "8080:8080"
   volumes:
     - ~/jenkins_data:/var/jenkins_home
+  privileged: true
+  command: service start docker
