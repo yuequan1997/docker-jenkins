@@ -1,5 +1,5 @@
 master:
-  image: "yuequan/jenkins"
+  image: "jenkins/jenkins:lts"
   environment:
     JAVA_OPTS: "-Djava.awt.headless=true"
   ports:
@@ -7,4 +7,4 @@ master:
     - "8080:8080"
   volumes:
     - ~/jenkins_data:/var/jenkins_home
-  privileged: true
+    - /var/run/docker.sock:/var/run/docker.sock
