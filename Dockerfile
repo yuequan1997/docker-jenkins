@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+MAINTAINER yuequan1997@gamil.com
 # for main web interface:
 EXPOSE ${http_port}
 # will be used by attached slave agents:
