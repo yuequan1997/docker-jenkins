@@ -15,5 +15,10 @@ RUN \
     echo "deb http://mirrors.aliyun.com/debian-security stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
     echo "deb-src http://mirrors.aliyun.com/debian-security stretch/updates main contrib non-free" >> /etc/apt/sources.list
 RUN apt-get clean all && apt-get update
-RUN apt-get install -y python-pip
-RUN pip install docker-cloud
+
+ENV DOCKERVERSION=17.12.0-ce
+RUN curl -fsSLO https://mirrors.ustc.edu.cn/docker-ce/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
+  && mv docker-${DOCKERVERSION}.tgz docker.tgz \
+  && tar xzvf docker.tgz \
+  && mv docker/docker /usr/local/bin \
+  && rm -r docker docker.tgz
