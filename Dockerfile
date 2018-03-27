@@ -18,8 +18,12 @@ RUN \
 RUN apt-get clean all && apt-get update
 
 ENV DOCKERVERSION=17.12.0-ce
-RUN curl -fsSLO https://mirrors.ustc.edu.cn/docker-ce/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
+RUN curl -fsSLO https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
   && mv docker-${DOCKERVERSION}.tgz docker.tgz \
   && tar xzvf docker.tgz \
   && mv docker/docker /usr/local/bin \
   && rm -r docker docker.tgz
+
+ENV DOCKER_COMPOSE_VERSION=1.20.1
+RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose
