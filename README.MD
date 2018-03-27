@@ -2,6 +2,7 @@
 在Jenkins官方镜像上添加了一些的环境
 目前添加的环境：
   - Docker CLI
+  - Docker Compose CLI
 ## 如何运行？
 
 ```
